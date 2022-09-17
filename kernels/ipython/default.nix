@@ -7,7 +7,7 @@
 }:
 
 let
-  kernelEnv = (python3.withPackages (p:
+  kernelEnv = (if packages == null then python3 else python3.withPackages (p:
     packages p ++ (with p; [
       ipykernel
     ])
